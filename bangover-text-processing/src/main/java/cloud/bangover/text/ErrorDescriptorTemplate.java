@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class ErrorDescriptorTemplate implements TextTemplate {
-  private static final String ERROR_TEMPLATE_ID = "ERROR.%s.%s";
+  private static final String ERROR_TEMPLATE_ID = "ERROR.%s";
 
   private final TextTemplate errorTemplate;
 
@@ -42,8 +42,7 @@ public class ErrorDescriptorTemplate implements TextTemplate {
   }
 
   private String getTextTemplateIdentifier(ErrorDescriptor errorDescriptor) {
-    return String.format(ERROR_TEMPLATE_ID, errorDescriptor.getContextId(),
-        errorDescriptor.getErrorCode());
+    return String.format(ERROR_TEMPLATE_ID, errorDescriptor.getErrorCode());
   }
 
   public static final TextTemplate createFor(@NonNull ErrorDescriptor errorDescriptor) {
